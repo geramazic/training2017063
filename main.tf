@@ -58,11 +58,6 @@ resource "aws_instance" "web" {
   }
 }
 
-#module "example" {
-#  source = "./example-module"
-#  command = "echo yadayada"
-#}
-#
 output "public_dns" {
   value = [ "${aws_instance.web.*.public_dns}" ]
 }
