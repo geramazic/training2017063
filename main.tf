@@ -20,7 +20,7 @@
 
 terraform {
   backend "atlas" {
-   name = "geramazic/training"
+    name = "geramazic/training"
   }
 }
 
@@ -36,9 +36,11 @@ variable "aws_region" {
   type    = "string"
   default = "eu-west-1"
 }
+
 variable "instances_count" {
-  default = "2"
+  default = "3"
 }
+
 provider "aws" {
   access_key = "${var.aws_access_key}"
   secret_key = "${var.aws_secret_key}"
@@ -59,5 +61,5 @@ resource "aws_instance" "web" {
 }
 
 output "public_dns" {
-  value = [ "${aws_instance.web.*.public_dns}" ]
+  value = ["${aws_instance.web.*.public_dns}"]
 }
